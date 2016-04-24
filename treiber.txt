@@ -1,0 +1,18 @@
+Bevor der Entwickler an die Programmierung eines Treibers gehen kann, m�ssen einige Voraussetzungen erf�llt sein:
+
+Die Quellen der Kernelversion, f�r die der Treiber erstellt werden soll, m�ssen vorhanden sein.
+
+Die Kernelquellen m�ssen eine passende Konfiguration enthalten (sprich, der Kernel muss konfiguriert sein).
+
+Der Pfad zu den Kernelquellen muss bekannt sein.
+
+Die Programme zum Laden und Entladen von Treibern, insmod und rmmod, m�ssen in einer aktuellen Version vorliegen.
+
+Kernelquellen. Die Kernelquellen selbst sind notwendig, weil der Treiber verschiedenste Datenstrukturen und Funktionen des Kernels verwendet. Dazu ben�tigt er die zugeh�rigen Deklarationen. Falls die Kernelquellen nicht bereits eingespielt sind, findet man selbige entweder beim zugeh�rigen Distributor (z.B. Debian, SuSE, Redhat oder Mandrake) bzw. distributionsunabh�ngig direkt unter der URL http://www.kernel.org. Anhang Kernel generieren und installieren erl�utert die Installation, die Konfiguration und die Generierung eines Kernels.
+
+Kernelkonfiguration. Sicherlich ein heikler Punkt ist die Abh�ngigkeit des Treibers von der zugeh�rigen Kernelkonfiguration. Linux zeichnet sich bekannterma�en durch eine au�ergew�hnlich gro�e Skalierbarkeit und Portierbarkeit aus. Die Kehrseite dieser Medaille: F�r die Portierung auf unterschiedliche Plattformen ben�tigt der Compiler unterschiedliche Compileflags. Ein Wissen, �ber das der einzelne Entwickler normalerweise nicht verf�gt, das aber im so genannten Kernel Build System hinterlegt ist. Das Kernel Build System ist eine mit Kernel 2.6 eingef�hrte Systemkomponente, die den Linux-Kernel inklusive seiner dynamisch ladbaren Module generiert (vgl. Kapitel Kernel Build System). Integriert der Treiberentwickler den zu erstellenden Treiber in das Kernel Build System , f�llt ein weiterer Stolperstein weg. Das Kernel Build System erkennt n�mlich, ob der Kernel f�r ein Einprozessorsystem erstellt wird oder ob Unterbrechungen im Kernel (Preemption) zugelassen sind, und erzeugt daraufhin selbst�ndig den daf�r erforderlichen Code.
+
+Zum Einklinken in das Kernel Build System ist es notwendig, den Pfad zu den konfigurierten Kernelquellen zu kennen.
+
+
+Pfade zu den Kernelquellen. Die Kernelquellen finden sich auf einem System unter dem Verzeichnis /lib/modules/<version>/build. Meist ist dies nur ein Link (Verweis) auf den wirklichen Ablageort, n�mlich /usr/src/linux-<version> bzw. nur /usr/src/linux.
