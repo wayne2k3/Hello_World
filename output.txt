@@ -5,3 +5,16 @@ Makefile:13: recipe for target 'default' failed
 make: *** [default] Error 2
 root@raspberrypi:/home/pi/Desktop/treiber/Hello_World# 
 
+
+
+
+
+
+root@raspberrypi:/home/pi/Desktop/Hello_World# make
+make -C /lib/modules/4.4.8-v7+/build SUBDIRS=/home/pi/Desktop/Hello_World modules
+make[1]: Entering directory '/lib/modules/4.4.8-v7+/build'
+make[1]: *** No rule to make target 'modules'.  Stop.
+make[1]: Leaving directory '/lib/modules/4.4.8-v7+/build'
+Makefile:13: recipe for target 'default' failed
+make: *** [default] Error 2
+
