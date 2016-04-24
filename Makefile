@@ -11,6 +11,10 @@ PWD := $(shell pwd)
 
 default:
 	$(MAKE) -C $(KERNELDIR) SUBDIRS=$(PWD) modules
+
+modules:
+
+	#your modules stuff here! 
 endif
 
 clean:
